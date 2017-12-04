@@ -1,0 +1,125 @@
+cai dat virtualenv
+pip install virtualenv hoav sudo -H pip install virualenv
+cd my_project_folder
+virtualenv my_project hoac virtualenv -p /usr/bin/python2.7 my_project --> dung python2.7
+source my_project/bin/activate
+pip install requests
+deactivate
+
+// change interpreter globally with an env variable in ~/.bashrc
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+
+install pipenv cho viec quan ly package
+pip install --user pipenv
+sau do can export path cua pipenv vao /urs/bin
+python -m site --user-base
+--> hien thi ra duong dan chua thu muc binary.
+vi du no hien thi ra:
+/home/tonquangtu/.local
+--> them bin vao phia sau path: /home/tonquangtu/.local
+export path --> /urs/bin
+export PATH=$PATH:/home/tonquangtu/.local
+cd /usr/bin
+sudo ln -s /home/tonquangtu/.local/bin pipenv
+
+Neu khong duoc thi moi lan dung se can chay lenh nay
+export PATH=$PATH:/home/tonquangtu/.local/bin
+install package: pipenv install package
+run file python: pipenv run python ten_file.py
+
+Hoac neu khong chay lenh export thi phai viet full path: ~/.local/bin/pipenv install package
+
+-----------------------------------------------------------------
+Một số lệnh của pipenv:
+
+Khởi tạo pipenv tại project 
+cd my_project
+pipenv install
+
+Tùy chọn, khởi tạo với python2
+pipenv install --two
+
+Tùy chọn khởi tạo với python3
+pipenv install --three
+
+Tùy chọn khởi tạo với chế độ dev
+pipenv install --dev
+
+Cài 1 package:
+pipenv install package_name
+
+Gỡ 1 package
+pipenv uninstall package_name
+
+Cài 1 package vào dev-depedencies
+pipenv install --dev package_name
+
+Running code
+Bước 1, active virtual environment liên kết tới project
+pipenv shell
+
+Sau đó, chạy file cần chạy
+pipenv run python my_project.py
+
+------------------------------------------------------
+Sử dụng virtual environment
+
+Cài virtualenv
+Sau đó, khi tạo mỗi project thì cần tạo ra virtualenv cho mỗi project đó
+
+virtualenv --system-site-package -p python3 targetDirectory
+
+Tùy chọn khởi tạo trên python2
+virtualenv --system-site-packages targetDirectory
+
+Tiếp theo cần active virtualenv trên thư mục vừa tạo virtualenv
+
+cd targetDicrectory
+source /bin/activate 
+
+Ví dự
+source ~/tensorflow/bin/activate
+
+(tensorflow)$ --> dấu nhắc lệnh cho biết đã active được
+
+Khi activate 1 virtualenv tren terminal thi khi chay python thi no se tu dong phat hien virtualenv nao dang active de run python tren no
+
+Để cài 1 package trên virtualenv đang activate thì
+pip3 install package_name 
+hoặc pip install package_name
+
+Deactive: --> hủy active virtualenv 
+deactivate 
+
+Để hủy virtualenv thì có thể xóa toàn bộ thư mục virtualenv vừa tạo đó
+ví dụ:
+rm -r ~/tensorflow 
+
+
+https://robots.thoughtbot.com/how-to-manage-your-python-projects-with-pipenv
+
+----------------------------------------------------
+Chay 1 file scrapy:
++ scrapy runspider file_spider.py
+
+Neu muon luu ket qua cua lan chay spider
+
++ scrapy runspider file_spider.py -o output.csv[json,txt]
+
+--> luu ket qua ra file output.csv hoac dinh dang khac nhu json hay txt
+
+De start 1 project scrapy. --> tao cau truc cho minh luon
++ scrapy startproject <project_name> [project_dir]
+
+---------------------------------
++ cd ScrapyProject
++ scrapy genspider example example.com --> tao 1 con spider
+
+---------------------------------
+
+
+
+
+
+
+
