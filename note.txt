@@ -115,6 +115,7 @@ De start 1 project scrapy. --> tao cau truc cho minh luon
 + cd ScrapyProject
 + scrapy genspider example example.com --> tao 1 con spider
 
++ scrapy crawl quotes --> run spider
 ---------------------------------
 
 
