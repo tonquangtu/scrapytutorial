@@ -1,0 +1,12 @@
+[
+{"tickers": ["AAPL", "FB", "AMZN", "NFLX", "TSLA"]},
+{"tickers": ["GOOG", "FB", "AAPL", "NFLX", "TSLA"]},
+{"tickers": ["FB", "TSLA", "AMZN", "GOOG", "TWTR"]},
+{"tickers": ["NFLX", "GOOG", "TSLA", "AAPL", "TWTR"]},
+{"tickers": ["FB", "BABA", "TSLA", "NFLX", "GPRO"]},
+{"tickers": ["FB", "BABA", "TSLA", "NFLX", "GPRO"]},
+{"tickers": ["BABA", "CTRP", "PCLN", "GOOG", "NFLX"]},
+{"tickers": ["FB", "NFLX", "BABA", "TWTR", "GOOG"]},
+{"tickers": ["FB", "TSLA", "TWTR", "NFLX", "BIDU"]},
+{"tickers": ["GOOG", "FB", "AMZN", "TSLA", "NFLX"]}
+]

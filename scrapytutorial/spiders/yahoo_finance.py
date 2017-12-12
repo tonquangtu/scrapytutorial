@@ -16,27 +16,22 @@ class YahooFinance(scrapy.Spider):
                   "https://finance.yahoo.com/quote/BIDU"]
 
     def parse(self, response):
-        # all_link = response.xpath("//a").extract()
-
-        # for link in all_link:
-        #     yield {"link": link}
-        # print(type(response.body))
-        # filename = "yahoo.txt"
-
-        # with open(filename, 'wb') as f:
-        #     f.write(response.body)
-        # yield response.body
         print("tu ton")
-        js = response.xpath("/html/body/script[1]/text()").extract_first()
-        script_file = "js.txt"
-        list = js.split('"recommendedSymbols":')
-        content = list[1].split('"options"')[0].split('[')[1].split(']')[0]
-        content = '[' + content + ']'
-        content = json.loads(content)
+        script_xpath = "/html/body/script/text()"
+        recommended_symbol = '"recommendedSymbols":'
+        script_list = response.xpath(script_xpath).extract()
+        matched_script = next((script_text for script_text in script_list if recommended_symbol in script_text), None)
 
-        content = [item['symbol'] for item in content]
-        yield {"content": content}
-        # print(content)
+        if matched_script is None:
+            return
+
+        extracted_content = matched_script.split(recommended_symbol)[1].split('"options"')[0].split('[')[1].split(']')[0]
+        extracted_content = '[' + extracted_content + ']'
+        extracted_content_json = json.loads(extracted_content)
+        tickers = [item['symbol'] for item in extracted_content_json]
+        yield {"tickers": tickers}
         #
-        # with open(script_file, 'w+') as f:
-        #     f.write(' '.join(content))
+        # # print(content)
+        # #
+        # with open("matched.txt", 'w+') as f:
+        #     f.write(matched_script)
